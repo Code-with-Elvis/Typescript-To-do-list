@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/*
+===================
+Variables
+===================
+*/
+$primaryA: #3b82f6;
+$primaryB: #2563eb;
+$dangerA: #ef4444;
+$dangerB: #dc2626;
+$warningA: #eab308;
+$warningB: #ca8a04;
+$successA: #86efac;
+$successA: #16a34a;
+$dark: #1d2a35;
+$white: #ffff;
+
+/*
+===================
+Mixins
+===================
+*/
+@mixin buttons($color: #fff, $bgColor: #2563eb) {
+  background-color: $bgColor;
+  color: $color;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+@mixin text($color: #222, $leading: 1.8, $fontSize: 14px) {
+  color: $color;
+  line-height: $leading;
+  font-size: $fontSize;
+}
+
+* {
+  font-family: 'Nunito Sans', system-ui;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: $dark;
+  min-height: 100vh;
+  padding-top: 10px;
+}
+
+/*
+===================
+Styling Starts
+===================
+*/
+h2 {
+  @include text($white, 1.5, 1.8rem);
+  filter: drop-shadow(1px 0 1px $primaryA);
+  text-align: center;
+}
+form {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 25px;
+
+  input {
+    padding: 8px 10px;
+    color: $dark;
+    font-size: 1.4rem;
+    border-radius: 4px;
+    border: none;
+
+    &:focus {
+      outline: 1.5px solid $primaryB;
+      outline-offset: -3px;
+    }
+  }
+  button {
+    @include buttons;
+    padding: 0 10px;
+    border-radius: 4px;
+    border: none;
+  }
+}
+
+ul {
+  margin-top: 40px;
+  max-width: 600px;
+  margin-inline: auto;
+  color: $white;
+  list-style-type: none;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 8px;
+
+    button {
+      @include buttons($white, $dangerA);
+      padding: 4px 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.2rem;
+    }
+  }
+}
+ul div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+
+  input {
+    transform: scale(1.4);
+    cursor: pointer;
+    accent-color: $warningB;
+    color: $white;
+  }
+  .sms {
+    @include text(#eee);
+  }
+}
